@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#FFF8F6" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -16,10 +16,69 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <script type="module" crossorigin src="/assets/index-d4j7409p.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Dmg7iOLd.css">
+
+  <style>
+    /* Sembunyikan #app sampai Vue selesai kompilasi & mount */
+    [v-cloak] { display: none !important; }
+
+    /* Loading screen statis — tampil sebelum JS Vue selesai dieksekusi
+       (initial parse + auth.init()). Tidak bergantung Tailwind karena
+       CSS itu baru aktif setelah Vue mount. */
+    #initial-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: radial-gradient(1200px 600px at 50% -10%, #FDEEF1 0%, #FFF8F6 55%, #FFFCFB 100%);
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+    #initial-loader .loader-logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #E8829F, #D33F70);
+      box-shadow: 0 10px 40px -10px rgba(184, 70, 110, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Fraunces", serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #FFF8F6;
+      animation: loader-pulse 1.4s ease-in-out infinite;
+    }
+    #initial-loader p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #7A6270;
+    }
+    @keyframes loader-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.95); }
+    }
+    /* Fade out halus saat loader dilepas oleh main.js */
+    #initial-loader.loader-hide {
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-DoZReLgn.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BZgBVZmO.css">
 <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
 <body class="bg-cream-100">
-  <div id="app"></div>
+  <!-- Loading screen statis, tampil duluan sebelum Vue mount -->
+  <div id="initial-loader">
+    <div class="loader-logo">D</div>
+    <p>Menyiapkan D'S Budgeting…</p>
+  </div>
+
+  <div id="app" v-cloak></div>
 </body>
 </html>
