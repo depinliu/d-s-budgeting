@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <title>Budgeting App</title>
+  <meta
+    name="description"
+    content="Kelola keuangan keluarga, pantau pengeluaran, dan capai tujuan finansial bersama."
+  />
   <meta name="theme-color" content="#FFF8F6" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -12,10 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <title>D'S Budgeting — Budget Keluarga</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Expires" content="0" /> -->
 
   <style>
     /* Sembunyikan #app sampai Vue selesai kompilasi & mount */
@@ -75,8 +81,10 @@
 <body class="bg-cream-100">
   <!-- Loading screen statis, tampil duluan sebelum Vue mount -->
   <div id="initial-loader">
-    <div class="loader-logo">D</div>
-    <p>Menyiapkan D'S Budgeting…</p>
+    <div class="loader-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake-icon lucide-heart-handshake"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"/></svg>
+    </div>
+    <p>Menyiapkan aplikasi...</p>
   </div>
 
   <div id="app" v-cloak></div>
